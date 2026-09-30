@@ -2,6 +2,8 @@
 
 Book flights and hotels from Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Hermes, Kiro and other agents. Everything is booked on your own OnArrival account, and every booking ends in a payment link that you pay, or that your agent pays if you've asked it to and given it your payment details.
 
+In apps that render [MCP Apps](https://github.com/modelcontextprotocol/ext-apps) (ChatGPT, Claude, VS Code and Goose), flights, hotels, the payment link and booking status show as interactive cards. Everywhere else your agent gets the same information as text.
+
 This repo has the plugins and extensions for each platform. They all connect to the same OnArrival MCP server and share two skills: `onarrival-flights` and `onarrival-hotels`.
 
 ## 1. Get your connection key
