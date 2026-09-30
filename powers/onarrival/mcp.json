@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "onarrival": {
+      "type": "streamable-http",
+      "url": "https://mcp.onarrival.com/mcp",
+      "headers": { "Authorization": "Bearer ${ONARRIVAL_CONNECTION}" }
+    }
+  }
+}

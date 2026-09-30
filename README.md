@@ -1,6 +1,6 @@
 # OnArrival for your agent
 
-Book flights and hotels from Claude, ChatGPT, Codex, Gemini, Cursor, VS Code and other agents. Everything is booked on your own OnArrival account, and every booking ends in a payment link that you pay, or that your agent pays if you've asked it to and given it your payment details.
+Book flights and hotels from Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Hermes, Kiro and other agents. Everything is booked on your own OnArrival account, and every booking ends in a payment link that you pay, or that your agent pays if you've asked it to and given it your payment details.
 
 This repo has the plugins and extensions for each platform. They all connect to the same OnArrival MCP server and share two skills: `onarrival-flights` and `onarrival-hotels`.
 
@@ -44,9 +44,30 @@ gemini extensions install https://github.com/OnArrival/agent-plugins
 
 Gemini CLI reads `ONARRIVAL_CONNECTION` from your environment. Check the connection with `gemini mcp list`.
 
+### GitHub Copilot CLI
+
+```bash
+copilot plugin marketplace add OnArrival/agent-plugins
+copilot plugin install onarrival@onarrival
+```
+
+Copilot CLI uses the same plugin as Claude Code and reads `ONARRIVAL_CONNECTION` when it starts. `copilot mcp get onarrival` shows the server.
+
+### Hermes
+
+```bash
+hermes mcp add onarrival --url https://mcp.onarrival.com/mcp --auth header
+hermes skills install OnArrival/agent-plugins/skills/onarrival-flights
+hermes skills install OnArrival/agent-plugins/skills/onarrival-hotels
+```
+
+When `hermes mcp add` asks for an API key, paste your connection key. Hermes keeps it in `~/.hermes/.env` and connects to list the tools. Start a new session to use them.
+
 ### Cursor
 
-With `ONARRIVAL_CONNECTION` set, open this link to add the server:
+**As a plugin:** in the Cursor dashboard, go to **Plugins & MCPs → Team Marketplaces → Import from Repo** and paste `https://github.com/OnArrival/agent-plugins`. The plugin brings the server and both skills.
+
+**Just the server:** with `ONARRIVAL_CONNECTION` set, open this link:
 
 [Add OnArrival to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=onarrival&config=eyJ1cmwiOiJodHRwczovL21jcC5vbmFycml2YWwuY29tL21jcCIsImhlYWRlcnMiOnsiQXV0aG9yaXphdGlvbiI6IkJlYXJlciAke2VudjpPTkFSUklWQUxfQ09OTkVDVElPTn0ifX0%3D)
 
@@ -98,20 +119,13 @@ Add this to your MCP config (`mcp_config.json`):
 }
 ```
 
-### Hermes
+### Kiro
 
-Add OnArrival under `mcp_servers` in `~/.hermes/config.yaml`, then restart Hermes:
+In Kiro's Powers panel, choose **Add Custom Power → Import power from GitHub** and enter `https://github.com/OnArrival/agent-plugins`. The OnArrival power is in `powers/onarrival`. Kiro reads `ONARRIVAL_CONNECTION` for the key.
 
-```yaml
-mcp_servers:
-  onarrival:
-    url: "https://mcp.onarrival.com/mcp"
-    headers:
-      Authorization: "Bearer ${ONARRIVAL_CONNECTION}"
-    timeout: 60
-```
+### Goose
 
-Copy the `skills/` folders into `~/.hermes/skills/` for the booking skills.
+Run `goose configure`, choose **Add Extension → Remote Extension (Streamable HTTP)**, name it `onarrival` and enter your personal MCP URL (`https://mcp.onarrival.com/u/oa_agt_…/mcp`). In Goose Desktop, add a custom extension of type Streamable HTTP with the same URL.
 
 ### OpenClaw
 
@@ -125,6 +139,16 @@ In Claude, open **Customize → Connectors → Add custom connector**. Name it *
 
 Turn on developer mode (**Settings → Security and login → Developer mode**), then add a plugin with your personal MCP URL and no authentication. Developer mode depends on your ChatGPT plan.
 
+### Skills for other agents
+
+To add the two booking skills to Amp, Antigravity, OpenCode, Cursor, Codex and the other agents that read `~/.agents/skills`:
+
+```bash
+npx skills add OnArrival/agent-plugins -g
+```
+
+Then connect the MCP server in that agent as described below.
+
 ### Any other MCP client
 
 Use streamable HTTP with either:
@@ -137,9 +161,11 @@ Use streamable HTTP with either:
 | Path | For |
 | --- | --- |
 | `skills/` | The flight and hotel booking skills ([Agent Skills](https://agentskills.io) format), shared by every platform |
-| `.claude-plugin/`, `.mcp.json` | Claude Code plugin and marketplace |
+| `.claude-plugin/`, `.mcp.json` | Claude Code plugin and marketplace, also used by GitHub Copilot CLI and VS Code |
 | `.codex-plugin/`, `.agents/plugins/marketplace.json` | Codex plugin and marketplace |
 | `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension |
+| `.cursor-plugin/`, `mcp.json` | Cursor plugin |
+| `powers/onarrival/` | Kiro power (its `skills/` is a copy of the root `skills/`) |
 | `server.json` | Entry for the official MCP Registry |
 
 ## Help

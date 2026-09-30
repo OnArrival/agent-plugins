@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "onarrival": {
+      "url": "https://mcp.onarrival.com/mcp",
+      "headers": { "Authorization": "Bearer ${env:ONARRIVAL_CONNECTION}" }
+    }
+  }
+}

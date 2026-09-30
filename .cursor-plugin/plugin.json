@@ -1,0 +1,6 @@
+{
+  "name": "onarrival",
+  "description": "Search and book flights and hotels on your OnArrival account. Every booking ends in a payment link.",
+  "version": "0.1.0",
+  "author": { "name": "OnArrival" }
+}
