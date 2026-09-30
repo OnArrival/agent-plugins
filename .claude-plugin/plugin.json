@@ -1,0 +1,19 @@
+{
+  "name": "onarrival",
+  "displayName": "OnArrival Travel",
+  "version": "0.1.0",
+  "description": "Search and book flights and hotels on your OnArrival account. Every booking ends in a payment link you pay (or ask your agent to pay).",
+  "author": {
+    "name": "OnArrival",
+    "url": "https://www.onarrival.com"
+  },
+  "homepage": "https://www.onarrival.com/send-your-agent",
+  "repository": "https://github.com/OnArrival/agent-plugins",
+  "keywords": [
+    "travel",
+    "flights",
+    "hotels",
+    "booking",
+    "india"
+  ]
+}

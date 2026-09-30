@@ -1,0 +1,12 @@
+{
+  "name": "onarrival",
+  "owner": { "name": "OnArrival", "url": "https://www.onarrival.com" },
+  "metadata": { "description": "OnArrival's plugins for booking travel with your agent." },
+  "plugins": [
+    {
+      "name": "onarrival",
+      "source": "./",
+      "description": "Search and book flights and hotels on your OnArrival account."
+    }
+  ]
+}

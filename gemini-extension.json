@@ -1,0 +1,20 @@
+{
+  "name": "onarrival",
+  "version": "0.1.0",
+  "description": "Search and book flights and hotels on your OnArrival account.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "onarrival": {
+      "httpUrl": "https://mcp.onarrival.com/mcp",
+      "headers": { "Authorization": "Bearer ${ONARRIVAL_CONNECTION}" }
+    }
+  },
+  "settings": [
+    {
+      "name": "OnArrival connection",
+      "description": "The oa_agt_… part of a connection you create at https://agents.onarrival.com",
+      "envVar": "ONARRIVAL_CONNECTION",
+      "sensitive": true
+    }
+  ]
+}

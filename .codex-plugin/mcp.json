@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "onarrival": {
+      "url": "https://mcp.onarrival.com/mcp",
+      "bearer_token_env_var": "ONARRIVAL_CONNECTION"
+    }
+  }
+}

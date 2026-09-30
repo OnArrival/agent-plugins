@@ -1,0 +1,24 @@
+{
+  "name": "onarrival",
+  "version": "0.1.0",
+  "description": "Search and book flights and hotels on your OnArrival account. Every booking ends in a payment link.",
+  "author": { "name": "OnArrival", "url": "https://www.onarrival.com" },
+  "homepage": "https://www.onarrival.com/send-your-agent",
+  "repository": "https://github.com/OnArrival/agent-plugins",
+  "keywords": ["travel", "flights", "hotels", "booking"],
+  "skills": "./skills/",
+  "mcpServers": "./.codex-plugin/mcp.json",
+  "interface": {
+    "displayName": "OnArrival Travel",
+    "shortDescription": "Book flights and hotels, pay by link",
+    "longDescription": "Search flights and hotels, prepare bookings on your OnArrival account, and get a payment link to pay yourself or hand to your agent.",
+    "developerName": "OnArrival",
+    "category": "Travel",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://www.onarrival.com/send-your-agent",
+    "defaultPrompt": [
+      "Find me a morning flight from Bengaluru to Delhi next Friday for one adult.",
+      "Find a hotel near Connaught Place in Delhi for two nights from the 12th."
+    ]
+  }
+}
