@@ -1,7 +1,7 @@
 {
   "name": "onarrival",
   "displayName": "OnArrival Travel",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Search and book flights and hotels on your OnArrival account. Every booking ends in a payment link you pay on Razorpay's secure page.",
   "author": {
     "name": "OnArrival",
@@ -15,5 +15,6 @@
     "hotels",
     "booking",
     "india"
-  ]
+  ],
+  "license": "MIT"
 }

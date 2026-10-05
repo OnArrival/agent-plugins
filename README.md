@@ -96,7 +96,7 @@ In apps that render [MCP Apps](https://github.com/modelcontextprotocol/ext-apps)
 
 ## Install
 
-**1. Get your connection key.** Sign in at [agents.onarrival.com](https://agents.onarrival.com) and create a connection for your agent. Its MCP URL looks like `https://mcp.onarrival.com/u/oa_agt_…/mcp`, and the `oa_agt_…` part is your **connection key**. For command-line agents, put the key in your shell profile:
+**1. Get your connection key (only for agents that don't sign in).** Claude Code, Claude and ChatGPT ask you to sign in to OnArrival the first time you use them, so they need no key. For the others, sign in at [agents.onarrival.com](https://agents.onarrival.com) and create a connection for your agent. Its MCP URL looks like `https://mcp.onarrival.com/u/oa_agt_…/mcp`, and the `oa_agt_…` part is your **connection key**. For command-line agents, put the key in your shell profile:
 
 ```bash
 export ONARRIVAL_CONNECTION=oa_agt_…
@@ -126,7 +126,7 @@ export ONARRIVAL_CONNECTION=oa_agt_…
 /plugin install onarrival@onarrival
 ```
 
-Or from a terminal: `claude plugin marketplace add OnArrival/agent-plugins`, then `claude plugin install onarrival@onarrival`. Claude Code reads `ONARRIVAL_CONNECTION` when it starts. Check the connection with `claude mcp list`. The plugin brings the MCP server and both booking skills.
+Or from a terminal: `claude plugin marketplace add OnArrival/agent-plugins`, then `claude plugin install onarrival@onarrival`. The first time you use it, Claude Code asks you to sign in to OnArrival; you can also run `/mcp` and choose **onarrival**. No key is needed. Check the connection with `claude mcp list`. The plugin brings the MCP server and both booking skills.
 
 </details>
 
@@ -161,7 +161,7 @@ copilot plugin marketplace add OnArrival/agent-plugins
 copilot plugin install onarrival@onarrival
 ```
 
-Copilot CLI uses the same plugin as Claude Code and reads `ONARRIVAL_CONNECTION` when it starts. `copilot mcp get onarrival` shows the server.
+Copilot CLI uses the same plugin as Claude Code and signs you in to OnArrival when you first use it. If your version can't sign in, add the server with the header shown under **Any MCP client** instead. `copilot mcp get onarrival` shows the server.
 
 </details>
 

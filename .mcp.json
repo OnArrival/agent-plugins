@@ -2,10 +2,7 @@
   "mcpServers": {
     "onarrival": {
       "type": "http",
-      "url": "https://mcp.onarrival.com/mcp",
-      "headers": {
-        "Authorization": "Bearer ${ONARRIVAL_CONNECTION}"
-      }
+      "url": "https://mcp.onarrival.com/mcp"
     }
   }
 }
