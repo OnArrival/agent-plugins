@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "OnArrival",
     "shortDescription": "Book flights and hotels",
-    "longDescription": "OnArrival books flights and hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares from airlines and hotels, compares fare options (baggage, seat, meals, cancellation and date-change rules), and shows the best-value choices. When you pick one, it holds the fare and gives you a payment link. You pay on OnArrival's secure payment page (powered by Razorpay); nothing is booked or charged until you do. Your e-ticket or hotel voucher then arrives by email.\n\nSign in with your OnArrival account so your saved travellers fill in the booking. OnArrival's team handles changes, cancellations and refunds.\n\nLimitations: prices are in Indian rupees, and you need a free OnArrival account (sign up at agents.onarrival.com). Passport details for international flights are entered only in the OnArrival card, never in chat.",
+    "longDescription": "OnArrival books flights and hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares from airlines and hotels, compares fare options (baggage, seat, meals, cancellation and date-change rules), and shows the best-value choices. When you pick one, it holds the fare and gives you a payment link. You pay on OnArrival's secure payment page (powered by Razorpay); nothing is booked or charged until you do. Your e-ticket or hotel voucher then arrives by email.\n\nSign in with your OnArrival account so your saved travellers fill in the booking. OnArrival's team handles changes, cancellations and refunds.\n\nLimitations: amounts are shown in Indian rupees, and you need an OnArrival account (sign up at agents.onarrival.com). For international flights, passports are added on OnArrival's secure payment page, never in chat.",
     "developerName": "OnArrival",
     "category": "Travel",
     "capabilities": [
@@ -100,7 +100,7 @@
             }
           ]
         },
-        "demo_recording_url": "REPLACE_WITH_VIDEO_URL",
+        "demo_recording_url": "https://drive.google.com/file/d/1eFlZ7eCVRoSWTWeRzaifHtIjxL5mAEvm/view",
         "commerce": true,
         "commerce_description": "OnArrival holds a flight or hotel the person picks and returns a payment link. The person pays on Razorpay's hosted checkout outside ChatGPT; the app never takes, stores or sees card details, and never pays on the person's behalf. Nothing is booked until the person pays."
       },
