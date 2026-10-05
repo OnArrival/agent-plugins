@@ -2,22 +2,17 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.onarrival/travel",
   "title": "OnArrival Travel",
-  "description": "Search and book flights and hotels on your OnArrival account, paid by payment link.",
-  "version": "0.1.0",
-  "websiteUrl": "https://www.onarrival.com/send-your-agent",
-  "repository": { "url": "https://github.com/OnArrival/agent-plugins", "source": "github" },
+  "description": "Search, compare and book flights and hotels on your OnArrival account. You pay by payment link.",
+  "version": "1.0.0",
+  "websiteUrl": "https://agents.onarrival.com",
+  "repository": {
+    "url": "https://github.com/OnArrival/agent-plugins",
+    "source": "github"
+  },
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.onarrival.com/mcp",
-      "headers": [
-        {
-          "name": "Authorization",
-          "description": "Bearer followed by your OnArrival connection key (oa_agt_…) from https://agents.onarrival.com",
-          "isRequired": true,
-          "isSecret": true
-        }
-      ]
+      "url": "https://mcp.onarrival.com/mcp"
     }
   ]
 }
