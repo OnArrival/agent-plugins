@@ -13,11 +13,11 @@
   <a href="https://modelcontextprotocol.io"><img alt="Model Context Protocol" src="https://img.shields.io/badge/MCP-streamable%20HTTP-6B4BFF?style=flat-square"></a>
   <a href="https://github.com/modelcontextprotocol/ext-apps"><img alt="MCP Apps" src="https://img.shields.io/badge/MCP%20Apps-interactive%20cards-FF3D8B?style=flat-square"></a>
   <a href="https://agentskills.io"><img alt="Agent Skills" src="https://img.shields.io/badge/Agent%20Skills-flights%20%2B%20hotels-FF6A2B?style=flat-square"></a>
-  <a href="https://www.onarrival.com/send-your-agent"><img alt="Early access" src="https://img.shields.io/badge/status-early%20access-FFD23F?style=flat-square"></a>
+  <a href="https://agents.onarrival.com"><img alt="Open sign-up" src="https://img.shields.io/badge/sign--up-open-FFD23F?style=flat-square"></a>
 </p>
 
 <p align="center">
-  <a href="https://www.onarrival.com/send-your-agent"><strong>Join the waitlist</strong></a> ·
+  <a href="https://agents.onarrival.com"><strong>Sign up</strong></a> ·
   <a href="#install">Install</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#interactive-cards">Interactive cards</a> ·
@@ -26,7 +26,7 @@
 </p>
 
 > [!NOTE]
-> **OnArrival for agents is in early access.** Join the waitlist at [onarrival.com/send-your-agent](https://www.onarrival.com/send-your-agent). Once you're invited, sign in at [agents.onarrival.com](https://agents.onarrival.com) to connect your agents.
+> **Sign up free at [agents.onarrival.com](https://agents.onarrival.com)**, then connect your agents. In ChatGPT and Claude you can also just add the OnArrival app and sign in when asked.
 
 ## Just ask
 
@@ -68,7 +68,7 @@ sequenceDiagram
 
 1. **Your agent searches** OnArrival's live inventory and shows you the best options.
 2. **You choose.** Your agent holds the fare and adds travellers from your saved profiles, asking before it creates anyone new.
-3. **You get one payment link.** It also goes to your email. Pay it yourself, forward it to whoever is paying, or let your agent pay if you've asked it to and given it your payment details.
+3. **You get one payment link.** It also goes to your email. Pay it yourself, or forward it to whoever is paying. Payment happens on Razorpay's secure page; your agent never pays or sees card details.
 4. **It's confirmed.** Your agent follows the booking to confirmation and hands you the PNR and e-ticket, or the hotel voucher.
 
 ## Interactive cards
@@ -296,7 +296,7 @@ Use streamable HTTP with either:
 
 - **One link per booking.** It opens OnArrival's payment page, which hands over to Razorpay's secure checkout. The link is also emailed to you.
 - **Pay from anywhere.** Scan the QR code to pay on your phone, or send the link by WhatsApp or email to whoever is paying.
-- **Your agent can pay,** but only if you've asked it to and given it your payment details. Otherwise it sends the link to you.
+- **You pay, not your agent.** Your agent hands you the link; the payment itself happens on Razorpay's page.
 - **Fares are re-checked** when you pay. If the price has changed, you see the new amount before paying.
 
 ## Security and privacy
@@ -318,7 +318,7 @@ Agents that speak MCP (Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Hermes) 
 <details>
 <summary><strong>Do I need a new account?</strong></summary>
 
-When your waitlist invite comes through, you confirm your email and your OnArrival account is set up. Bookings made by your agents appear under **Bookings** at [agents.onarrival.com](https://agents.onarrival.com).
+Sign up at [agents.onarrival.com](https://agents.onarrival.com) with Google or your email, and your OnArrival account is set up. Bookings made by your agents appear under **Bookings** at [agents.onarrival.com](https://agents.onarrival.com).
 
 </details>
 
@@ -359,4 +359,4 @@ Built on open standards: the [Model Context Protocol](https://modelcontextprotoc
 
 ## Help
 
-See your bookings, manage your connections or contact support at [agents.onarrival.com](https://agents.onarrival.com). New here? [Join the waitlist](https://www.onarrival.com/send-your-agent).
+See your bookings, manage your connections or contact support at [agents.onarrival.com](https://agents.onarrival.com). New here? [Sign up](https://agents.onarrival.com).

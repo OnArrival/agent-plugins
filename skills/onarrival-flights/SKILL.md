@@ -23,6 +23,6 @@ The OnArrival tools book on the user's own OnArrival account. You prepare the bo
 ## Rules
 
 - Confirm the flight, travellers and total price with the user before creating the order.
-- Only pay the link yourself if the user explicitly asked you to and you hold their payment details. Otherwise, send them the link.
+- Never pay the link yourself: send it to the user, who pays on Razorpay's secure page.
 - Fares can change: if the price moves, tell the user before continuing.
 - If a tool says the connection isn't active, the user needs a new connection link from https://agents.onarrival.com.
