@@ -1,0 +1,112 @@
+{
+  "name": "onarrival",
+  "version": "1.0.1",
+  "description": "Search and book flights and hotels on your OnArrival account. Every booking ends in a payment link the person pays on Razorpay's secure page.",
+  "author": {
+    "name": "OnArrival",
+    "url": "https://www.onarrival.com"
+  },
+  "homepage": "https://agents.onarrival.com",
+  "repository": "https://github.com/OnArrival/agent-plugins",
+  "keywords": [
+    "travel",
+    "flights",
+    "hotels",
+    "booking",
+    "india"
+  ],
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "OnArrival",
+    "shortDescription": "Book flights and hotels",
+    "longDescription": "OnArrival books flights and hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares from airlines and hotels, compares fare options (baggage, seat, meals, cancellation and date-change rules), and shows the best-value choices. When you pick one, it holds the fare and gives you a payment link. You pay on OnArrival's secure payment page (powered by Razorpay); nothing is booked or charged until you do. Your e-ticket or hotel voucher then arrives by email.\n\nSign in with your OnArrival account so your saved travellers fill in the booking. OnArrival's team handles changes, cancellations and refunds.\n\nLimitations: prices are in Indian rupees, and you need a free OnArrival account (sign up at agents.onarrival.com). Passport details for international flights are entered only in the OnArrival card, never in chat.",
+    "developerName": "OnArrival",
+    "category": "Travel",
+    "capabilities": [
+      "Search flights",
+      "Search hotels",
+      "Compare fare options",
+      "Hold fares",
+      "Payment links",
+      "Saved travellers"
+    ],
+    "websiteURL": "https://agents.onarrival.com",
+    "supportURL": "https://agents.onarrival.com/support",
+    "privacyPolicyURL": "https://www.onarrival.com/privacy",
+    "termsOfServiceURL": "https://www.onarrival.com/terms",
+    "defaultPrompt": [
+      "Find me a morning flight from Bengaluru to Mumbai next Friday for one adult.",
+      "Find a 4-star hotel near Baga beach in Goa for two nights for two adults.",
+      "Show my bookings."
+    ],
+    "brandColor": "#0A68DB",
+    "brandColorDark": "#2CE6FF",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "screenshots": [
+      "./assets/flights.png",
+      "./assets/pay.png",
+      "./assets/booked.png"
+    ]
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Search flights and show the options card.",
+              "prompt": "Find me a morning flight from Bengaluru to Mumbai on the 20th of next month for 1 adult.",
+              "tools_triggered": "flight-search",
+              "expected_behavior": "The OnArrival card shows BLR to BOM flights with times, stops, prices, a fare calendar and filters. ChatGPT names one or two standouts in a line instead of listing every flight."
+            },
+            {
+              "description": "Pick a fare for a chosen flight.",
+              "prompt": "Book the cheapest non-stop of those for me.",
+              "tools_triggered": "flight-search, flight-fare-options",
+              "expected_behavior": "If the flight has fare families, ChatGPT lists them (price, check-in bag, cancellation fee) and asks which one; otherwise it moves straight on to holding the flight."
+            },
+            {
+              "description": "Hold the flight for a saved traveller and get the payment link.",
+              "prompt": "The cheapest fare, for my saved traveller. Skip seats and give me the payment link.",
+              "tools_triggered": "flight-order-create, traveller-list, flight-order-travellers-update, order-payment-initialize",
+              "expected_behavior": "The flight is held for the saved traveller, and the card shows 'Ready to pay' with the total, a QR code, a Pay button and the fare rules. Nothing is charged; the link is also emailed to the account."
+            },
+            {
+              "description": "Search hotels and compare two.",
+              "prompt": "Find a 4-star hotel near Baga beach in Goa for 20-22 November for 2 adults, then compare the top two.",
+              "tools_triggered": "hotel-destination-search, hotel-listing, hotel-compare",
+              "expected_behavior": "The card lists hotels near Baga with ratings, distance and nightly prices, then shows the two side by side (price, rating, breakfast, free cancellation) with a recommended pick."
+            },
+            {
+              "description": "Check the person's bookings.",
+              "prompt": "Show my bookings.",
+              "tools_triggered": "booking-list",
+              "expected_behavior": "The card lists the account's recent bookings with route or hotel, dates, status (held, awaiting payment, confirmed) and amount."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Passport details are never collected in chat.",
+              "prompt": "My passport number is A1234567, expiring 2031. Add it to my Dubai booking."
+            },
+            {
+              "description": "The app never pays on the person's behalf or takes card details.",
+              "prompt": "Here's my card number 4111 1111 1111 1111, pay the booking link for me."
+            },
+            {
+              "description": "Out of scope: OnArrival books flights and hotels only.",
+              "prompt": "Book me a train from Delhi to Agra tomorrow."
+            }
+          ]
+        },
+        "demo_recording_url": "REPLACE_WITH_VIDEO_URL",
+        "commerce": true,
+        "commerce_description": "OnArrival holds a flight or hotel the person picks and returns a payment link. The person pays on Razorpay's hosted checkout outside ChatGPT; the app never takes, stores or sees card details, and never pays on the person's behalf. Nothing is booked until the person pays."
+      },
+      "publication": {
+        "release_notes": "Flights and hotels: live search, fare options and comparisons, holds for saved travellers, a payment link, booking status. Passport details for international flights are entered only in the card."
+      }
+    }
+  }
+}
