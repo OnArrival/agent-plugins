@@ -1,6 +1,6 @@
 {
   "name": "onarrival",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Search and book flights and hotels on your OnArrival account. Every booking ends in a payment link the person pays on Razorpay's secure page.",
   "author": {
     "name": "OnArrival",
@@ -105,7 +105,7 @@
         "commerce_description": "OnArrival holds a flight or hotel the person picks and returns a payment link. The person pays on Razorpay's hosted checkout outside ChatGPT; the app never takes, stores or sees card details, and never pays on the person's behalf. Nothing is booked until the person pays."
       },
       "publication": {
-        "release_notes": "Flights and hotels: live search, fare options and comparisons, holds for saved travellers, a payment link, booking status. Passport details for international flights are entered only in the card."
+        "release_notes": "Flights and hotels: live search, fare options and comparisons, holds for saved travellers, a payment link, booking status. For international flights, passports are added on OnArrival's secure payment page, never in chat."
       }
     }
   }
