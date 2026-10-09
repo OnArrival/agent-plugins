@@ -1,6 +1,6 @@
 {
   "name": "onarrival",
-  "description": "Search and book flights and hotels on your OnArrival account. Every booking ends in a payment link.",
-  "version": "0.1.0",
+  "description": "Search, compare and book flights and hotels on your OnArrival account. Your agent holds the fare and gives you a payment link you pay on OnArrival's secure payment page. It can also cancel a booking, set price alerts, and book corporate fares, with your company's GST details taken on the payment page.",
+  "version": "0.2.0",
   "author": { "name": "OnArrival" }
 }
