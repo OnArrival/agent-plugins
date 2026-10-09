@@ -1,7 +1,7 @@
 {
   "name": "onarrival",
-  "version": "1.0.2",
-  "description": "Search and book flights and hotels on your OnArrival account. Every booking ends in a payment link the person pays on Razorpay's secure page.",
+  "version": "1.0.3",
+  "description": "Search, compare and book flights and hotels on your OnArrival account. Your agent holds the fare and gives you a payment link you pay on OnArrival's secure payment page. It can also cancel a booking, set price alerts, and book corporate fares, with your company's GST details taken on the payment page.",
   "author": {
     "name": "OnArrival",
     "url": "https://www.onarrival.com"
@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "OnArrival",
     "shortDescription": "Book flights and hotels",
-    "longDescription": "OnArrival books flights and hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares from airlines and hotels, compares fare options (baggage, seat, meals, cancellation and date-change rules), and shows the best-value choices. When you pick one, it holds the fare and gives you a payment link. You pay on OnArrival's secure payment page (powered by Razorpay); nothing is booked or charged until you do. Your e-ticket or hotel voucher then arrives by email.\n\nSign in with your OnArrival account so your saved travellers fill in the booking. OnArrival's team handles changes, cancellations and refunds.\n\nLimitations: amounts are shown in Indian rupees, and you need an OnArrival account (sign up at agents.onarrival.com). For international flights, passports are added on OnArrival's secure payment page, never in chat.",
+    "longDescription": "OnArrival books flights and hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares from airlines and hotels, compares fare options (baggage, seat, meals, cancellation and date-change rules), and shows the best-value choices. When you pick one, it holds the fare and gives you a payment link. You pay on OnArrival's secure payment page; nothing is booked or charged until you do. Your e-ticket or hotel voucher then arrives by email.\n\nYou can also cancel a booking (the refund is shown first), set a price alert on a flight and hear on WhatsApp when the fare drops, and book corporate fares for work trips, with your company's name and GSTIN taken on the payment page.\n\nSign in with your OnArrival account so your saved travellers fill in the booking. OnArrival's team handles date changes, refunds and anything else a booking needs.\n\nLimitations: amounts are shown in Indian rupees, and you need an OnArrival account (sign up at agents.onarrival.com). For international flights, passports are added on OnArrival's secure payment page, never in chat.",
     "developerName": "OnArrival",
     "category": "Travel",
     "capabilities": [
@@ -28,7 +28,10 @@
       "Compare fare options",
       "Hold fares",
       "Payment links",
-      "Saved travellers"
+      "Saved travellers",
+      "Cancel bookings",
+      "Price alerts",
+      "Corporate fares"
     ],
     "websiteURL": "https://agents.onarrival.com",
     "supportURL": "https://agents.onarrival.com/support",
@@ -102,10 +105,10 @@
         },
         "demo_recording_url": "https://drive.google.com/file/d/1eFlZ7eCVRoSWTWeRzaifHtIjxL5mAEvm/view",
         "commerce": true,
-        "commerce_description": "OnArrival holds a flight or hotel the person picks and returns a payment link. The person pays on Razorpay's hosted checkout outside ChatGPT; the app never takes, stores or sees card details, and never pays on the person's behalf. Nothing is booked until the person pays."
+        "commerce_description": "OnArrival holds a flight or hotel the person picks and returns a payment link. The person pays on OnArrival's secure payment page, a hosted checkout outside ChatGPT; the app never takes, stores or sees card details, and never pays on the person's behalf. Nothing is booked until the person pays."
       },
       "publication": {
-        "release_notes": "Flights and hotels: live search, fare options and comparisons, holds for saved travellers, a payment link, booking status. For international flights, passports are added on OnArrival's secure payment page, never in chat."
+        "release_notes": "Flights and hotels: live search, fare options and comparisons, holds for saved travellers, a payment link, booking status. New: cancel a booking with its refund shown first, price alerts on flights, and corporate fares with the company's GST details taken on the payment page. For international flights, passports are added on OnArrival's secure payment page, never in chat."
       }
     }
   }

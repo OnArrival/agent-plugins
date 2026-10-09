@@ -5,7 +5,7 @@
 <h1 align="center">OnArrival for your AI agent</h1>
 
 <p align="center">
-  <strong>Book flights and hotels from Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Hermes, Kiro and any MCP client.</strong><br>
+  <strong>Book flights and hotels from Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Grok, Hermes, Kiro and any MCP client.</strong><br>
   Your agent searches live fares, compares options and holds the booking on your OnArrival account. You pay with one link.
 </p>
 
@@ -36,6 +36,12 @@
 
 > *"I've paid. Is my booking confirmed? Send me the PNR."*
 
+> *"Tell me if Bengaluru to Delhi on 12 October drops under ₹5,000."*
+
+> *"Cancel my Goa hotel. How much do I get back?"*
+
+> *"It's a work trip: show me corporate fares."*
+
 Your agent does the searching and the forms. You stay in control of the money: **nothing is booked until you pay**.
 
 | | Flights | Hotels |
@@ -45,6 +51,9 @@ Your agent does the searching and the forms. You stay in control of the money: *
 | **Book** | Travellers from your saved profiles, plus seats, meals and bags | Guests from your saved profiles, with PAN or passport where required |
 | **Pay** | One secure payment link, which you or anyone you send it to can pay | Same |
 | **After** | Live status, PNR and e-ticket | Live status, confirmation number and voucher |
+| **Cancel** | Ask your agent to cancel: it shows the refund first, and you get an email when the cancellation is asked for and when it's done | Same |
+| **Price alerts** | Watch a route and date, and hear on WhatsApp when the fare drops | |
+| **Corporate fares** | For work trips within India, with your company's name and GSTIN taken on the payment page | |
 
 ## How it works
 
@@ -113,7 +122,7 @@ export ONARRIVAL_CONNECTION=oa_agt_…
 | **Hermes** | `hermes mcp add onarrival --url https://mcp.onarrival.com/mcp --auth header` |
 | **Claude** (web, desktop) | Custom connector with your personal MCP URL. [Steps](#claude-web-and-desktop) |
 | **ChatGPT** | Developer-mode plugin with your personal MCP URL. [Steps](#chatgpt) |
-| **Cursor · VS Code · Windsurf · Kiro · Goose · OpenClaw** | [See below](#more-agents) |
+| **Grok · Cursor · VS Code · Windsurf · Kiro · Goose · OpenClaw** | [See below](#more-agents) |
 | **Any MCP client** | `https://mcp.onarrival.com/mcp` with `Authorization: Bearer oa_agt_…` |
 
 **3. Ask for a trip.** That's it.
@@ -187,6 +196,19 @@ In Claude, open **Customize → Connectors → Add custom connector**. Name it *
 Turn on developer mode (**Settings → Security and login → Developer mode**), then add a plugin with your personal MCP URL and no authentication. Developer mode depends on your ChatGPT plan. Results show as interactive cards.
 
 ### More agents
+
+<details>
+<summary><strong>Grok</strong></summary>
+
+Grok takes OnArrival as a custom connector, on Grok's paid plans:
+
+1. Open [grok.com/connectors](https://grok.com/connectors) and choose **New Connector → Custom**.
+2. Paste `https://mcp.onarrival.com/mcp`.
+3. Sign in with OnArrival when Grok asks. Allow its sign-in pop-up if your browser blocks it.
+
+No key is needed. Then ask Grok for a trip.
+
+</details>
 
 <details>
 <summary><strong>Cursor</strong></summary>
@@ -311,7 +333,7 @@ Use streamable HTTP with either:
 <details>
 <summary><strong>Which agents work best?</strong></summary>
 
-Agents that speak MCP (Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Hermes) use OnArrival's tools directly. ChatGPT, Claude, VS Code and Goose also show interactive cards. Browser agents such as Muse and Instinct use OnArrival's agent-friendly website instead: create a connection for them at [agents.onarrival.com](https://agents.onarrival.com) and give them its website link.
+Agents that speak MCP (Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Grok, Hermes) use OnArrival's tools directly. ChatGPT, Claude, VS Code and Goose also show interactive cards. Browser agents such as Muse and Instinct use OnArrival's agent-friendly website instead: create a connection for them at [agents.onarrival.com](https://agents.onarrival.com) and give them its website link.
 
 </details>
 
