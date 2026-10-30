@@ -1,7 +1,7 @@
 {
   "name": "onarrival",
   "version": "1.0.4",
-  "description": "Search, compare and book flights and hotels on your OnArrival account. Your agent holds the fare and gives you a payment link you pay on OnArrival's secure payment page. It can also show a fare's rules, cancel a paid booking once you've seen the refund and said yes, set price alerts on flights and hotels, and book corporate fares, with your company's GST details taken on the payment page.",
+  "description": "Search, compare and book flights and hotels on your OnArrival account. Your agent holds the fare and gives you a payment link you pay on OnArrival's secure payment page. It can also show a fare's rules, cancel a paid booking once you've seen the refund and said yes, set price alerts on flights, and book corporate fares, with your company's GST details taken on the payment page.",
   "author": {
     "name": "OnArrival",
     "url": "https://www.onarrival.com"
@@ -19,7 +19,7 @@
   "interface": {
     "displayName": "OnArrival",
     "shortDescription": "Book flights and hotels",
-    "longDescription": "OnArrival books flights and hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares from airlines and hotels, compares fare options (baggage, seat, meals, cancellation and date-change rules), and shows the best-value choices. When you pick one, it holds the fare and gives you a payment link. You pay on OnArrival's secure payment page; nothing is booked or charged until you do. Your e-ticket or hotel voucher then arrives by email.\n\nYou can also see a fare's rules in plain words (cancellation and date-change charges, bags), cancel a paid booking right in the chat (OnArrival shows what you'd get back, and cancels only after you say yes), set a price alert on a flight or a hotel stay and hear on WhatsApp when the price drops, and book corporate fares for work trips, with your company's name and GSTIN taken on the payment page.\n\nSign in with your OnArrival account so your saved travellers fill in the booking. OnArrival's team handles date changes and anything else a booking needs.\n\nLimitations: amounts are shown in Indian rupees, and you need an OnArrival account (sign up at agents.onarrival.com). For international flights, passports are added on OnArrival's secure payment page, never in chat.",
+    "longDescription": "OnArrival books flights and hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares from airlines and hotels, compares fare options (baggage, seat, meals, cancellation and date-change rules), and shows the best-value choices. When you pick one, it holds the fare and gives you a payment link. You pay on OnArrival's secure payment page; nothing is booked or charged until you do. Your e-ticket or hotel voucher then arrives by email.\n\nYou can also see a fare's rules in plain words (cancellation and date-change charges, bags), cancel a paid booking right in the chat (OnArrival shows what you'd get back, and cancels only after you say yes), set a price alert on a flight and hear on WhatsApp when the fare drops, and book corporate fares for work trips, with your company's name and GSTIN taken on the payment page.\n\nSign in with your OnArrival account so your saved travellers fill in the booking. OnArrival's team handles date changes and anything else a booking needs.\n\nLimitations: amounts are shown in Indian rupees, and you need an OnArrival account (sign up at agents.onarrival.com). For international flights, passports are added on OnArrival's secure payment page, never in chat.",
     "developerName": "OnArrival",
     "category": "Travel",
     "capabilities": [
@@ -32,7 +32,6 @@
       "Saved travellers",
       "Cancel bookings",
       "Price alerts",
-      "Hotel price alerts",
       "Corporate fares"
     ],
     "websiteURL": "https://agents.onarrival.com",
@@ -110,7 +109,7 @@
         "commerce_description": "OnArrival holds a flight or hotel the person picks and returns a payment link. The person pays on OnArrival's secure payment page, a hosted checkout outside ChatGPT; the app never takes, stores or sees card details, and never pays on the person's behalf. Nothing is booked until the person pays."
       },
       "publication": {
-        "release_notes": "Fare options for a flight on their own card, and a fare's rules in plain words. Price alerts for hotel stays as well as flights, checked every 3 hours, and your price watches on a card. Clearer names for every step, and links to the payment page and e-ticket that open from the chat. Passports and GST details are still never collected in chat."
+        "release_notes": "Fare options for a flight on their own card, and a fare's rules in plain words. Flight price alerts checked every 3 hours, and your price watches on a card. Clearer names for every step, and links to the payment page and e-ticket that open from the chat. Passports and GST details are still never collected in chat."
       }
     }
   }
