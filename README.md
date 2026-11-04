@@ -5,7 +5,7 @@
 <h1 align="center">OnArrival for your AI agent</h1>
 
 <p align="center">
-  <strong>Book flights and hotels from Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Grok, Hermes, Kiro and any MCP client.</strong><br>
+  <strong>Book flights and hotels with your AI agent: Claude, ChatGPT, Cursor or any MCP client.</strong><br>
   Your agent searches live fares, compares options and holds the booking on your OnArrival account. You pay with one link.
 </p>
 
@@ -32,13 +32,19 @@
 
 > *"Find me a morning flight from Bengaluru to Delhi on 12 October for two adults, non-stop, under ₹6,000."*
 
+> *"What's the cheapest day to fly Bengaluru to Goa next week?"*
+
+> *"Bengaluru to Delhi on the 5th, Delhi to Jaipur on the 8th, back to Bengaluru on the 12th."*
+
 > *"Book a 4-star hotel near Connaught Place for 12–14 October with free cancellation."*
+
+> *"Goa for three nights: these flights and that hotel. What's the total?"*
 
 > *"I've paid. Is my booking confirmed? Send me the PNR."*
 
-> *"Tell me if Bengaluru to Delhi on 12 October drops under ₹5,000."*
+> *"Tell me on WhatsApp if Bengaluru to Delhi on 12 October gets cheaper."*
 
-> *"Cancel my Goa hotel. How much do I get back?"*
+> *"Cancel my Delhi flight. How much do I get back?"*
 
 > *"It's a work trip: show me corporate fares."*
 
@@ -46,14 +52,15 @@ Your agent does the searching and the forms. You stay in control of the money: *
 
 | | Flights | Hotels |
 | --- | --- | --- |
-| **Search** | One-way and round trips, any cabin, adults, children and infants | Cities, areas, landmarks or a specific hotel, any number of rooms |
-| **Compare** | Price, times, stops, duration, fare families and refundability | Star rating, guest rating, reviews, rooms, inclusions, cancellation terms |
-| **Book** | Travellers from your saved profiles, plus seats, meals and bags | Guests from your saved profiles, with PAN or passport where required |
-| **Pay** | One secure payment link, which you or anyone you send it to can pay | Same |
-| **After** | Live status, PNR and e-ticket | Live status, confirmation number and voucher |
-| **Cancel** | Ask your agent to cancel: it shows the refund first, and you get an email when the cancellation is asked for and when it's done | Same |
+| **Search** | One way, round trip and multi-city, and the cheapest day across several | Cities, areas, landmarks, a brand or one hotel by name, with live prices for your dates |
+| **Compare** | Price, times, stops, duration, and each fare's bags and cancellation and date-change charges | Star rating, guest rating, reviews, rooms, inclusions, cancellation terms |
+| **Book** | Travellers from your saved profiles, plus seats, meals and bags where the flight has them | Guests from your saved profiles. A stay abroad that needs a PAN takes it from the guest's saved profile |
+| **Pay** | One payment link, paid on OnArrival's secure payment page | Same |
+| **After** | PNR and e-ticket | The hotel's confirmation |
+| **Trip plans** | Flights and a hotel together, with the total and the dates checked to fit | |
+| **Cancel** | Ask your agent to cancel: it shows the refund first, and cancels only after you say yes | |
 | **Price alerts** | Watch a route and date, and hear on WhatsApp when the fare drops | |
-| **Corporate fares** | For work trips within India, with your company's name and GSTIN taken on the payment page | |
+| **Corporate fares** | For work trips within India | |
 
 ## How it works
 
@@ -70,19 +77,19 @@ sequenceDiagram
     You->>Agent: "The 7:00 IndiGo"
     Agent->>OA: Hold the fare, add travellers
     OA-->>Agent: Payment link
-    Agent-->>You: Pay ₹10,468 (link, QR code, WhatsApp)
-    You->>OA: Pay on Razorpay's secure page
+    Agent-->>You: Pay ₹10,468 (link and QR code)
+    You->>OA: Pay on OnArrival's secure payment page
     OA-->>You: Confirmed, with PNR and e-ticket
 ```
 
 1. **Your agent searches** OnArrival's live inventory and shows you the best options.
 2. **You choose.** Your agent holds the fare and adds travellers from your saved profiles, asking before it creates anyone new.
-3. **You get one payment link.** It also goes to your email. Pay it yourself, or forward it to whoever is paying. Payment happens on Razorpay's secure page; your agent never pays or sees card details.
-4. **It's confirmed.** Your agent follows the booking to confirmation and hands you the PNR and e-ticket, or the hotel voucher.
+3. **You get one payment link.** It also goes to your email. You pay on OnArrival's secure payment page; your agent never pays or sees card details.
+4. **It's confirmed.** Your agent follows the booking to confirmation and hands you the PNR and e-ticket, or the hotel's confirmation.
 
 ## Interactive cards
 
-In apps that render [MCP Apps](https://github.com/modelcontextprotocol/ext-apps) (**ChatGPT, Claude, VS Code and Goose**), results appear as native-looking cards right in the conversation. They follow each app's own light and dark theme. Everywhere else, your agent gets the same information as text.
+In apps that render [MCP Apps](https://github.com/modelcontextprotocol/ext-apps) (**Claude and ChatGPT**), results appear as native-looking cards right in the conversation. They follow each app's own light and dark theme. Everywhere else, your agent gets the same information as text.
 
 <table>
   <tr>
@@ -90,8 +97,8 @@ In apps that render [MCP Apps](https://github.com/modelcontextprotocol/ext-apps)
     <td width="48%" valign="top"><img src="assets/pay.png" alt="Payment card with the total, a QR code, copy, WhatsApp and email sharing, and a Pay button"></td>
   </tr>
   <tr>
-    <td valign="top"><strong>Compare and choose.</strong> Swipe through options, or open full screen to sort by price, speed or time and filter by stops. Choosing an option tells your agent to book it.</td>
-    <td valign="top"><strong>Pay, or send it on.</strong> Pay in one tap, or share the link by QR code, WhatsApp, email or copy. The card follows the payment live.</td>
+    <td valign="top"><strong>Compare and choose.</strong> Swipe through options, or open full screen to sort by price, speed or time and filter by stops. Choosing an option books it right there: the card holds the fare, adds your saved travellers and gives you the payment link.</td>
+    <td valign="top"><strong>Pay.</strong> Pay in one tap, or scan the QR code to pay on your phone. The card follows the payment live.</td>
   </tr>
   <tr>
     <td valign="top"><img src="assets/booked.png" alt="Confirmed booking with progress steps, PNR, total and an E-ticket button"></td>
@@ -135,7 +142,7 @@ export ONARRIVAL_CONNECTION=oa_agt_…
 /plugin install onarrival@onarrival
 ```
 
-Or from a terminal: `claude plugin marketplace add OnArrival/agent-plugins`, then `claude plugin install onarrival@onarrival`. The first time you use it, Claude Code asks you to sign in to OnArrival; you can also run `/mcp` and choose **onarrival**. No key is needed. Check the connection with `claude mcp list`. The plugin brings the MCP server and both booking skills.
+Or from a terminal: `claude plugin marketplace add OnArrival/agent-plugins`, then `claude plugin install onarrival@onarrival`. The first time you use it, Claude Code asks you to sign in to OnArrival; you can also run `/mcp` and choose **onarrival**. No key is needed. Check the connection with `claude mcp list`. The plugin brings the MCP server and both skills.
 
 </details>
 
@@ -233,7 +240,7 @@ No key is needed. Then ask Grok for a trip.
 <details>
 <summary><strong>VS Code</strong> (GitHub Copilot)</summary>
 
-Add this to `.vscode/mcp.json` in a workspace, or to your user MCP configuration. VS Code asks for the key once and stores it securely. Results show as interactive cards.
+Add this to `.vscode/mcp.json` in a workspace, or to your user MCP configuration. VS Code asks for the key once and stores it securely.
 
 ```json
 {
@@ -280,7 +287,7 @@ In Kiro's Powers panel, choose **Add Custom Power → Import power from GitHub**
 <details>
 <summary><strong>Goose</strong></summary>
 
-Run `goose configure`, choose **Add Extension → Remote Extension (Streamable HTTP)**, name it `onarrival` and enter your personal MCP URL (`https://mcp.onarrival.com/u/oa_agt_…/mcp`). In Goose Desktop, add a custom extension of type Streamable HTTP with the same URL. Results show as interactive cards.
+Run `goose configure`, choose **Add Extension → Remote Extension (Streamable HTTP)**, name it `onarrival` and enter your personal MCP URL (`https://mcp.onarrival.com/u/oa_agt_…/mcp`). In Goose Desktop, add a custom extension of type Streamable HTTP with the same URL.
 
 </details>
 
@@ -294,7 +301,7 @@ Add a remote MCP server named `onarrival` that uses streamable HTTP, with your p
 <details>
 <summary><strong>Skills for Amp, Antigravity, OpenCode and more</strong></summary>
 
-The two booking skills work in any agent that reads [Agent Skills](https://agentskills.io):
+The two skills work in any agent that reads [Agent Skills](https://agentskills.io):
 
 ```bash
 npx skills add OnArrival/agent-plugins -g
@@ -316,16 +323,16 @@ Use streamable HTTP with either:
 
 ## Paying for a booking
 
-- **One link per booking.** It opens OnArrival's payment page, which hands over to Razorpay's secure checkout. The link is also emailed to you.
-- **Pay from anywhere.** Scan the QR code to pay on your phone, or send the link by WhatsApp or email to whoever is paying.
-- **You pay, not your agent.** Your agent hands you the link; the payment itself happens on Razorpay's page.
-- **Fares are re-checked** when you pay. If the price has changed, you see the new amount before paying.
+- **One link per booking.** It opens OnArrival's secure payment page, and it's also emailed to you.
+- **Pay on your phone.** Scan the QR code on the payment card.
+- **You pay, not your agent.** Your agent hands you the link; the payment itself happens on OnArrival's secure payment page.
+- **Fares are checked again** when your agent holds the booking.
 
 ## Security and privacy
 
 - **One key per agent.** Each agent gets its own connection, so you can revoke one without touching the others. Revoking takes effect within a minute.
 - **Keys are stored hashed.** OnArrival shows a connection link once and stores only a hash of it. Treat it like a password, and revoke it at [agents.onarrival.com](https://agents.onarrival.com) if it leaks.
-- **Agents never see card details.** Payment happens on Razorpay's hosted checkout. Agents only ever get the payment link.
+- **Agents never see card details.** Payment happens on OnArrival's secure payment page. Agents only ever get the payment link.
 - **Nothing is booked until it's paid,** so an agent can't spend money on its own.
 
 ## FAQ
@@ -333,7 +340,7 @@ Use streamable HTTP with either:
 <details>
 <summary><strong>Which agents work best?</strong></summary>
 
-Agents that speak MCP (Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Grok, Hermes) use OnArrival's tools directly. ChatGPT, Claude, VS Code and Goose also show interactive cards. Browser agents such as Muse and Instinct use OnArrival's agent-friendly website instead: create a connection for them at [agents.onarrival.com](https://agents.onarrival.com) and give them its website link.
+Agents that speak MCP (Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Grok, Hermes) use OnArrival's tools directly. Claude and ChatGPT also show interactive cards. Browser agents such as Muse and Instinct use OnArrival's agent-friendly website instead: create a connection for them at [agents.onarrival.com](https://agents.onarrival.com) and give them its website link.
 
 </details>
 
@@ -352,13 +359,6 @@ Nothing is booked until the payment link is paid, and the payment page shows the
 </details>
 
 <details>
-<summary><strong>Can someone else pay?</strong></summary>
-
-Yes. Anyone with the payment link can pay it, so send it to whoever is paying, or let them scan the QR code.
-
-</details>
-
-<details>
 <summary><strong>How do I stop an agent?</strong></summary>
 
 Revoke its connection at [agents.onarrival.com](https://agents.onarrival.com). It stops working within a minute, and your other agents keep working.
@@ -369,12 +369,13 @@ Revoke its connection at [agents.onarrival.com](https://agents.onarrival.com). I
 
 | Path | For |
 | --- | --- |
-| `skills/` | The flight and hotel booking skills ([Agent Skills](https://agentskills.io) format), shared by every platform |
+| `skills/` | The flight and hotel skills ([Agent Skills](https://agentskills.io) format), shared by every platform |
 | `.claude-plugin/`, `.mcp.json` | Claude Code plugin and marketplace, also used by GitHub Copilot CLI and VS Code |
 | `.codex-plugin/`, `.agents/plugins/marketplace.json` | Codex plugin and marketplace |
 | `gemini-extension.json`, `GEMINI.md` | Gemini CLI extension |
 | `.cursor-plugin/`, `mcp.json` | Cursor plugin |
 | `powers/onarrival/` | Kiro power (its `skills/` is a copy of the root `skills/`) |
+| `scripts/check.sh` | Fails if the Kiro power's skills differ from `skills/` or a manifest isn't valid JSON; runs on every pull request |
 | `server.json` | Entry for the official MCP Registry |
 
 Built on open standards: the [Model Context Protocol](https://modelcontextprotocol.io), [MCP Apps](https://github.com/modelcontextprotocol/ext-apps) and [Agent Skills](https://agentskills.io).

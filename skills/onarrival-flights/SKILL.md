@@ -1,28 +1,46 @@
 ---
 name: onarrival-flights
-description: Search and book flights with OnArrival (fares in INR) and hand the traveller a payment link. Use when the user asks to find, compare or book a flight, or to check a flight booking they made through OnArrival.
+description: Search, compare and book flights with OnArrival (fares in INR), one way, return or multi-city, and hand the traveller a payment link. Use when the user asks to find, compare, hold or book a flight, wants the cheapest day to fly, asks what a fare includes, asks about or wants to cancel a flight booking made through OnArrival, or wants to hear when a fare drops.
 ---
 
-# Booking flights with OnArrival
+# Flights with OnArrival
 
-The OnArrival tools book on the user's own OnArrival account. You prepare the booking; it is only confirmed once the payment link is paid.
+The OnArrival tools work on the user's own OnArrival account. You find and hold the flight; nothing is booked until the user pays the payment link. The server's own instructions, and each result's notes and hints, come first. This skill only says which tool covers what, and in what order.
 
-## Flow
+## Finding flights
 
-1. **Airports.** Turn city or airport names into IATA codes with `airport-search`. If a city has several airports, ask which one unless the user already said.
-2. **Travellers first.** Ask how many adults, children and infants are travelling before searching. Never assume one adult.
-3. **Search.** Call `flight-search` with the IATA codes, dates and traveller counts. Present a short list: airline, times, stops, duration and total price. To sort, filter or page, pass the same `searchId` back instead of searching again.
-4. **Fare families.** If the chosen one-way option has `fareFamilySelectionRequired`, call `flight-fare-options`, let the user pick, and pass `onwardFareOptionId`.
-5. **Round trips.** Follow `roundTripSelectionMode`: `INDEPENDENT_LEGS` needs one onward and one return option; `FIXED_ITINERARY` needs only the onward option.
-6. **Create the order** with `flight-order-create` once the user confirms the option and price.
-7. **Travellers.** Call `traveller-list`, show the saved travellers and let the user choose. Create a profile with `traveller-create` only for someone who isn't saved. Then call `flight-order-travellers-update` with `leadTravellerId` and `otherTravellerIds` (never repeat the lead in the others).
-8. **Extras (optional).** Offer seats, meals and bags with `flight-ancillaries-get` and `flight-ancillaries-update` if the user wants them.
-9. **Payment link.** Call `order-payment-initialize`. It returns `paymentUrl`, which is also emailed to the user. Share the link and the amount.
-10. **Status.** After they pay, check `flight-booking-details` and share the PNR and e-ticket once confirmed.
+- **Airports.** `airport-search` turns a city or airport name into its code. If a city has several airports and the user didn't say which, ask.
+- **Before searching**, have the trip type (one way, round trip, multi-city), the dates (a round trip's return date too) and who's flying (adults, children with their ages, infants). Ask only for what's missing.
+- **One route, one way or return:** `flight-search`, once per trip, with every filter in that one call. A return trip is one round-trip search and one booking.
+- **Several days, or the cheapest day:** `flight-flexible-dates`, once, rather than one search per day. `flight-fare-calendar` gives a route's fares day by day.
+- **Multi-city, or a return as two one-ways:** `flight-trip-search` searches every leg at once. Each leg is then booked as its own order.
+- **Where to go:** `flight-explore` finds the cheapest places to fly to from an airport over a range of dates.
+- **A closer look:** `flight-option-details` gives one option in full, and `flight-compare` sets a few side by side.
+- **Fares:** when a picked option needs a fare choice, `flight-fare-options` lists its fares with their bags and their cancellation and date-change charges. `flight-fare-rules`, where your tools include it, gives one fare's rules in full.
+- **Work trips:** `flight-search` with corporate fares, when the user asks for them or says the trip is for work. They're for flights within India.
 
-## Rules
+Rows in a result are numbered (a return's way back lettered), so the user can pick one by its number, letter or flight number. A call with the latest `searchId` refreshes its fares, so there's no need to search again just to re-check a price.
 
-- Confirm the flight, travellers and total price with the user before creating the order.
-- Never pay the link yourself: send it to the user, who pays on Razorpay's secure page.
-- Fares can change: if the price moves, tell the user before continuing.
-- If a tool says the connection isn't active, the user needs a new connection link from https://agents.onarrival.com.
+## Booking
+
+1. **Travellers ready first.** A held fare lasts only minutes, so have the travellers and the contact email and phone before holding. `traveller-list` shows the saved travellers. Ask before creating a new profile with `traveller-create`.
+2. **Hold:** `flight-order-create` with the picked option.
+3. **Travellers and contact:** `flight-order-travellers-update`, with the contact email and phone in the same call.
+4. **Seats, meals and bags, if the user wants them:** `flight-ancillaries-get`, then `flight-ancillaries-update`. Some flights have none to add here, and the result says so.
+5. **Payment link:** `order-payment-initialize`, only when the user asks to pay. It emails them the link, and they pay on OnArrival's secure payment page. Never pay it yourself.
+
+In apps that show OnArrival's cards, the user can also choose and book in the card. The card then holds the fare, adds the travellers and makes the payment link itself.
+
+## After booking
+
+- **Where a booking stands:** `booking-list` and `flight-booking-details`, with the PNR and e-ticket once it's confirmed. Asked about a booking, say its status and ask whether they want to pay; don't make a payment link unasked.
+- **Cancelling a paid booking:** `booking-cancel-quote` first, then `booking-cancel` only after the user has heard the quote and clearly said yes.
+
+## Fare alerts
+
+`flight-price-watch` watches a route's fare and messages the user on WhatsApp when it drops. It needs their WhatsApp number and their yes to alerts there. `price-watch-list` shows their watches and `price-watch-stop` ends one.
+
+## Notes
+
+- Dates and times are in India time unless an airport says otherwise.
+- If a tool says the connection isn't active, the user needs a new connection from https://agents.onarrival.com.
