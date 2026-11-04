@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "onarrival",
   "version": "1.1.0",
-  "description": "Search, compare and book flights and hotels on your OnArrival account. Your agent holds the fare or room and gives you a payment link you pay on OnArrival's secure payment page. It can also find the cheapest day to fly, search multi-city trips, put flights and a hotel together as one trip, show a fare's rules, add seats, meals and bags, cancel a paid booking once you've seen the refund and said yes, set fare-drop alerts on WhatsApp, and search corporate fares for work trips within India.",
+  "description": "Search, compare and book flights and hotels on your OnArrival account. Your agent holds the fare or room and gives you a payment link you pay on OnArrival's secure payment page. It can also find the cheapest day to fly, search multi-city trips, put flights and a hotel together as one trip, show a fare's rules, add seats, meals and bags, cancel a paid flight booking once you've seen the refund and said yes, set fare-drop alerts on WhatsApp, and search corporate fares for work trips within India.",
   "author": { "name": "OnArrival", "url": "https://www.onarrival.com" },
   "homepage": "https://www.onarrival.com/send-your-agent",
   "repository": "https://github.com/OnArrival/agent-plugins",
