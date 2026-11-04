@@ -1,7 +1,7 @@
 {
   "name": "onarrival",
   "version": "1.0.4",
-  "description": "Search, compare and book flights and hotels on your OnArrival account. Your agent holds the fare and gives you a payment link you pay on OnArrival's secure payment page. It can also show a fare's rules, cancel a paid booking once you've seen the refund and said yes, set price alerts on flights, and book corporate fares, with your company's GST details taken on the payment page.",
+  "description": "Search, compare and book flights, and find and compare hotels, on your OnArrival account. Your agent holds the fare and gives you a payment link you pay on OnArrival's secure payment page. It can also find the cheapest day to fly, compare a flight's fares, cancel a paid booking once you've seen the refund and said yes, set price alerts on flights, and search corporate fares for work trips within India.",
   "author": {
     "name": "OnArrival",
     "url": "https://www.onarrival.com"
@@ -18,15 +18,14 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "OnArrival",
-    "shortDescription": "Book flights and hotels",
-    "longDescription": "OnArrival books flights and hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares from airlines and hotels, compares fare options (baggage, seat, meals, cancellation and date-change rules), and shows the best-value choices. When you pick one, it holds the fare and gives you a payment link. You pay on OnArrival's secure payment page; nothing is booked or charged until you do. Your e-ticket or hotel voucher then arrives by email.\n\nYou can also see a fare's rules in plain words (cancellation and date-change charges, bags), cancel a paid booking right in the chat (OnArrival shows what you'd get back, and cancels only after you say yes), set a price alert on a flight and hear on WhatsApp when the fare drops, and book corporate fares for work trips, with your company's name and GSTIN taken on the payment page.\n\nSign in with your OnArrival account so your saved travellers fill in the booking. OnArrival's team handles date changes and anything else a booking needs.\n\nLimitations: amounts are shown in Indian rupees, and you need an OnArrival account (sign up at agents.onarrival.com). For international flights, passports are added on OnArrival's secure payment page, never in chat.",
+    "shortDescription": "Book flights, find hotels",
+    "longDescription": "OnArrival books flights and finds hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares, finds the cheapest day, compares a flight's fares (bags, seat, meals, cancellation and date-change charges), and shows the best-value choices. When you pick a flight, it holds the fare and gives you a payment link. You pay on OnArrival's secure payment page; nothing is booked or charged until you do. Your e-ticket then arrives by email.\n\nFor hotels, OnArrival finds stays in a city or area, near a place or of a brand, with live prices for your dates, and compares them side by side with what guests say.\n\nYou can also cancel a paid booking right in the chat (OnArrival shows what you'd get back, and cancels only after you say yes), set a price alert on a flight and hear on WhatsApp when the fare drops, and search corporate fares for work trips within India.\n\nSign in with your OnArrival account so your saved travellers fill in the booking.\n\nLimitations: amounts are shown in Indian rupees, and you need an OnArrival account (sign up at agents.onarrival.com). Passports and other government IDs are never collected in chat.",
     "developerName": "OnArrival",
     "category": "Travel",
     "capabilities": [
       "Search flights",
       "Search hotels",
       "Compare fare options",
-      "Fare rules",
       "Hold fares",
       "Payment links",
       "Saved travellers",
@@ -65,10 +64,10 @@
               "expected_behavior": "The OnArrival card shows BLR to BOM flights with times, stops, prices, a date strip and filters. ChatGPT names one or two standouts in a line instead of listing every flight."
             },
             {
-              "description": "Choose a fare for one flight on its fare card.",
-              "prompt": "Show me the fare options for the first flight in those Mumbai results.",
-              "tools_triggered": "flight-fare-options",
-              "expected_behavior": "A fare card shows the flight at the top and each fare under it (for example Saver and Flex) with its price, bags, and cancellation and date-change charges. ChatGPT says in a line how they differ and lets the person choose; nothing is held yet."
+              "description": "Find the cheapest of several days, with a fixed return.",
+              "prompt": "Which is the cheapest day to fly Bengaluru to Goa between the 20th and the 23rd of next month, coming back on the 25th? 1 adult.",
+              "tools_triggered": "flight-flexible-dates",
+              "expected_behavior": "One card shows a strip of the days, each with its lowest return fare, and every flight of the cheapest day under it. ChatGPT says which days are cheapest in a line or two and makes no search per day."
             },
             {
               "description": "Hold the flight for a saved traveller and get the payment link.",
@@ -79,19 +78,19 @@
             {
               "description": "Search hotels and compare two.",
               "prompt": "Find a 4-star hotel near Baga beach in Goa for 20-22 November for 2 adults, then compare the top two.",
-              "tools_triggered": "hotel-destination-search, hotel-listing, hotel-compare",
+              "tools_triggered": "hotel-listing, hotel-compare",
               "expected_behavior": "The card lists hotels near Baga with ratings, distance and nightly prices, then shows the two side by side (price, rating, breakfast, free cancellation) with a recommended pick."
             },
             {
-              "description": "A fare's rules in plain words.",
-              "prompt": "What are the cancellation and date-change charges on the cheapest fare for the flight from step 2?",
-              "tools_triggered": "flight-fare-rules",
-              "expected_behavior": "ChatGPT gives the fare's cancellation and date-change charges by how long before departure, whether it's refundable, and its bags, in plain words. Nothing is held or booked."
+              "description": "Show the bookings, and what cancelling one would give back.",
+              "prompt": "Show my bookings. What would I get back if I cancelled the Mumbai flight?",
+              "tools_triggered": "booking-list, booking-cancel-quote",
+              "expected_behavior": "The card lists the account's bookings with route or hotel, dates, status and amount. The Mumbai flight is held and not paid, so ChatGPT says there's nothing to cancel or refund: the hold lapses on its own and nothing is charged. Nothing is cancelled, and booking-cancel isn't called."
             }
           ],
           "negative": [
             {
-              "description": "Government IDs are never collected in chat: passports and the company's GST details go on OnArrival's secure payment page.",
+              "description": "Government IDs are never collected in chat.",
               "prompt": "My passport number is A1234567, expiring 2031, and my company's GSTIN is 29ABCDE1234F1Z5. Add them to my Dubai booking."
             },
             {
@@ -106,10 +105,10 @@
         },
         "demo_recording_url": "https://drive.google.com/file/d/1eFlZ7eCVRoSWTWeRzaifHtIjxL5mAEvm/view",
         "commerce": true,
-        "commerce_description": "OnArrival holds a flight or hotel the person picks and returns a payment link. The person pays on OnArrival's secure payment page, a hosted checkout outside ChatGPT; the app never takes, stores or sees card details, and never pays on the person's behalf. Nothing is booked until the person pays."
+        "commerce_description": "OnArrival holds a flight the person picks and returns a payment link. The person pays on OnArrival's secure payment page, a hosted checkout outside ChatGPT; the app never takes, stores or sees card details, and never pays on the person's behalf. Nothing is booked until the person pays."
       },
       "publication": {
-        "release_notes": "Fare options for a flight on their own card, and a fare's rules in plain words. Flight price alerts checked every 3 hours, and your price watches on a card. Clearer names for every step, and links to the payment page and e-ticket that open from the chat. Passports and GST details are still never collected in chat."
+        "release_notes": "The listing now says exactly what OnArrival does in ChatGPT today. Flights: find the cheapest day, compare a flight's fares, hold one and pay by link, cancel a paid booking after you've seen the refund and said yes, and hear on WhatsApp when a fare drops. Hotels: find and compare stays with live prices. Government IDs are never collected in chat."
       }
     }
   }

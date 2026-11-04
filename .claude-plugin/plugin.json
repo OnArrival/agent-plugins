@@ -1,8 +1,8 @@
 {
   "name": "onarrival",
   "displayName": "OnArrival Travel",
-  "version": "1.0.2",
-  "description": "Search, compare and book flights and hotels on your OnArrival account. Your agent holds the fare and gives you a payment link you pay on OnArrival's secure payment page. It can also cancel a booking, set price alerts, and book corporate fares, with your company's GST details taken on the payment page.",
+  "version": "1.1.0",
+  "description": "Search, compare and book flights, and find and compare hotels, on your OnArrival account. Your agent holds the fare and gives you a payment link you pay on OnArrival's secure payment page. It can also find the cheapest day to fly, search multi-city trips, show a fare's rules, add seats, meals and bags, cancel a paid booking once you've seen the refund and said yes, set fare-drop alerts on WhatsApp, and search corporate fares for work trips within India.",
   "author": {
     "name": "OnArrival",
     "url": "https://www.onarrival.com"
