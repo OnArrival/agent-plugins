@@ -6,7 +6,7 @@
     {
       "name": "onarrival",
       "source": "./",
-      "description": "Book flights and find hotels on your OnArrival account: a payment link, cancellations, fare alerts and corporate fares."
+      "description": "Book flights and hotels on your OnArrival account: a payment link, trip plans, cancellations, fare alerts and corporate fares."
     }
   ]
 }

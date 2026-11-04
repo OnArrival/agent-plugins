@@ -9,11 +9,13 @@ Every plugin now says only what OnArrival does today.
 
 **Hotels**
 - The hotels skill uses today's tool names: `hotel-listing` takes the place in words, and `hotel-destination-search` is only for places that share a name. It adds `hotel-find` (a brand, or near a place), `hotel-info` (one hotel by name), `hotel-compare`, `hotel-reviews-get` and `hotel-recommend`.
-- Hotels are for finding and comparing stays, with live prices. Booking a hotel through an agent isn't described until it's proven end to end.
+- Booking a stay: hold it, add the guests (a stay abroad that needs a PAN takes it from the guest's saved profile, never from chat), and a payment link.
+- Flights and a hotel together as one trip, with the total (`trip-plan`).
 
 **Listings**
 - Every description, the README and the OpenAI listing say the same thing. Cards are described for Claude and ChatGPT.
-- Live flight status, hotel price alerts, trip plans, support requests and the company GST step on the payment page are no longer described.
+- Live flight status, hotel price alerts, support requests and the company GST step on the payment page are no longer described.
+- The README names one payment page, OnArrival's secure payment page, and no longer says that anyone with the link can pay it.
 - The OpenAI plugin and the Codex plugin describe only the tools ChatGPT and Codex have today: no fare rules there, and the 1.0.3 review cases are back.
 
 **Repo**

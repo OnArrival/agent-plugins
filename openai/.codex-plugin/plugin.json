@@ -1,7 +1,7 @@
 {
   "name": "onarrival",
   "version": "1.0.4",
-  "description": "Search, compare and book flights, and find and compare hotels, on your OnArrival account. Your agent holds the fare and gives you a payment link you pay on OnArrival's secure payment page. It can also find the cheapest day to fly, compare a flight's fares, cancel a paid booking once you've seen the refund and said yes, set price alerts on flights, and search corporate fares for work trips within India.",
+  "description": "Search, compare and book flights and hotels on your OnArrival account. Your agent holds the fare or room and gives you a payment link you pay on OnArrival's secure payment page. It can also find the cheapest day to fly, compare a flight's fares, put flights and a hotel together as one trip, cancel a paid booking once you've seen the refund and said yes, set price alerts on flights, and search corporate fares for work trips within India.",
   "author": {
     "name": "OnArrival",
     "url": "https://www.onarrival.com"
@@ -18,8 +18,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "OnArrival",
-    "shortDescription": "Book flights, find hotels",
-    "longDescription": "OnArrival books flights and finds hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares, finds the cheapest day, compares a flight's fares (bags, seat, meals, cancellation and date-change charges), and shows the best-value choices. When you pick a flight, it holds the fare and gives you a payment link. You pay on OnArrival's secure payment page; nothing is booked or charged until you do. Your e-ticket then arrives by email.\n\nFor hotels, OnArrival finds stays in a city or area, near a place or of a brand, with live prices for your dates, and compares them side by side with what guests say.\n\nYou can also cancel a paid booking right in the chat (OnArrival shows what you'd get back, and cancels only after you say yes), set a price alert on a flight and hear on WhatsApp when the fare drops, and search corporate fares for work trips within India.\n\nSign in with your OnArrival account so your saved travellers fill in the booking.\n\nLimitations: amounts are shown in Indian rupees, and you need an OnArrival account (sign up at agents.onarrival.com). Passports and other government IDs are never collected in chat.",
+    "shortDescription": "Book flights and hotels",
+    "longDescription": "OnArrival books flights and hotels for you, right in the chat.\n\nAsk for a trip in your own words. OnArrival searches live fares and stays, finds the cheapest day, compares a flight's fares (bags, seat, meals, cancellation and date-change charges), and shows the best-value choices. When you pick one, it holds the fare or room and gives you a payment link. You pay on OnArrival's secure payment page; nothing is booked or charged until you do. Your e-ticket or hotel confirmation then arrives by email.\n\nFor hotels, OnArrival finds stays in a city or area, near a place or of a brand, with live prices for your dates, and compares them side by side with what guests say. It can also put your flights and a hotel together as one trip, with the total.\n\nYou can also cancel a paid booking right in the chat (OnArrival shows what you'd get back, and cancels only after you say yes), set a price alert on a flight and hear on WhatsApp when the fare drops, and search corporate fares for work trips within India.\n\nSign in with your OnArrival account so your saved travellers fill in the booking.\n\nLimitations: amounts are shown in Indian rupees, and you need an OnArrival account (sign up at agents.onarrival.com). Passports and other government IDs are never collected in chat: a stay abroad that needs a guest's PAN takes it from their saved OnArrival profile.",
     "developerName": "OnArrival",
     "category": "Travel",
     "capabilities": [
@@ -105,10 +105,10 @@
         },
         "demo_recording_url": "https://drive.google.com/file/d/1eFlZ7eCVRoSWTWeRzaifHtIjxL5mAEvm/view",
         "commerce": true,
-        "commerce_description": "OnArrival holds a flight the person picks and returns a payment link. The person pays on OnArrival's secure payment page, a hosted checkout outside ChatGPT; the app never takes, stores or sees card details, and never pays on the person's behalf. Nothing is booked until the person pays."
+        "commerce_description": "OnArrival holds a flight or hotel the person picks and returns a payment link. The person pays on OnArrival's secure payment page, a hosted checkout outside ChatGPT; the app never takes, stores or sees card details, and never pays on the person's behalf. Nothing is booked until the person pays."
       },
       "publication": {
-        "release_notes": "The listing now says exactly what OnArrival does in ChatGPT today. Flights: find the cheapest day, compare a flight's fares, hold one and pay by link, cancel a paid booking after you've seen the refund and said yes, and hear on WhatsApp when a fare drops. Hotels: find and compare stays with live prices. Government IDs are never collected in chat."
+        "release_notes": "The listing now says exactly what OnArrival does in ChatGPT today. Flights: find the cheapest day, compare a flight's fares, hold one and pay by link, cancel a paid booking after you've seen the refund and said yes, and hear on WhatsApp when a fare drops. Hotels: find, compare and book stays with live prices. Flights and a hotel together as one trip, with the total. Government IDs are never collected in chat."
       }
     }
   }

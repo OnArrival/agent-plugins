@@ -5,7 +5,7 @@
 <h1 align="center">OnArrival for your AI agent</h1>
 
 <p align="center">
-  <strong>Book flights and find hotels from Claude, ChatGPT, Codex, Gemini, Copilot, Cursor, Grok, Hermes, Kiro and any MCP client.</strong><br>
+  <strong>Book flights and hotels with your AI agent: Claude, ChatGPT, Cursor or any MCP client.</strong><br>
   Your agent searches live fares, compares options and holds the booking on your OnArrival account. You pay with one link.
 </p>
 
@@ -36,7 +36,9 @@
 
 > *"Bengaluru to Delhi on the 5th, Delhi to Jaipur on the 8th, back to Bengaluru on the 12th."*
 
-> *"Find a 4-star hotel near Connaught Place for 12–14 October with free cancellation."*
+> *"Book a 4-star hotel near Connaught Place for 12–14 October with free cancellation."*
+
+> *"Goa for three nights: these flights and that hotel. What's the total?"*
 
 > *"I've paid. Is my booking confirmed? Send me the PNR."*
 
@@ -50,11 +52,12 @@ Your agent does the searching and the forms. You stay in control of the money: *
 
 | | Flights | Hotels |
 | --- | --- | --- |
-| **Search** | One way, round trip and multi-city, for adults, children and infants, and the cheapest day across several | Cities, areas, landmarks, a brand or one hotel by name, with live prices for your dates |
+| **Search** | One way, round trip and multi-city, and the cheapest day across several | Cities, areas, landmarks, a brand or one hotel by name, with live prices for your dates |
 | **Compare** | Price, times, stops, duration, and each fare's bags and cancellation and date-change charges | Star rating, guest rating, reviews, rooms, inclusions, cancellation terms |
-| **Book** | Travellers from your saved profiles, plus seats, meals and bags where the flight has them | |
-| **Pay** | One secure payment link, which you or anyone you send it to can pay | |
-| **After** | PNR and e-ticket | |
+| **Book** | Travellers from your saved profiles, plus seats, meals and bags where the flight has them | Guests from your saved profiles. A stay abroad that needs a PAN takes it from the guest's saved profile |
+| **Pay** | One payment link, paid on OnArrival's secure payment page | Same |
+| **After** | PNR and e-ticket | The hotel's confirmation |
+| **Trip plans** | Flights and a hotel together, with the total and the dates checked to fit | |
 | **Cancel** | Ask your agent to cancel: it shows the refund first, and cancels only after you say yes | |
 | **Price alerts** | Watch a route and date, and hear on WhatsApp when the fare drops | |
 | **Corporate fares** | For work trips within India | |
@@ -74,15 +77,15 @@ sequenceDiagram
     You->>Agent: "The 7:00 IndiGo"
     Agent->>OA: Hold the fare, add travellers
     OA-->>Agent: Payment link
-    Agent-->>You: Pay ₹10,468 (link, QR code, WhatsApp)
-    You->>OA: Pay on Razorpay's secure page
+    Agent-->>You: Pay ₹10,468 (link and QR code)
+    You->>OA: Pay on OnArrival's secure payment page
     OA-->>You: Confirmed, with PNR and e-ticket
 ```
 
 1. **Your agent searches** OnArrival's live inventory and shows you the best options.
 2. **You choose.** Your agent holds the fare and adds travellers from your saved profiles, asking before it creates anyone new.
-3. **You get one payment link.** It also goes to your email. Pay it yourself, or forward it to whoever is paying. Payment happens on Razorpay's secure page; your agent never pays or sees card details.
-4. **It's confirmed.** Your agent follows the booking to confirmation and hands you the PNR and e-ticket.
+3. **You get one payment link.** It also goes to your email. You pay on OnArrival's secure payment page; your agent never pays or sees card details.
+4. **It's confirmed.** Your agent follows the booking to confirmation and hands you the PNR and e-ticket, or the hotel's confirmation.
 
 ## Interactive cards
 
@@ -95,7 +98,7 @@ In apps that render [MCP Apps](https://github.com/modelcontextprotocol/ext-apps)
   </tr>
   <tr>
     <td valign="top"><strong>Compare and choose.</strong> Swipe through options, or open full screen to sort by price, speed or time and filter by stops. Choosing an option books it right there: the card holds the fare, adds your saved travellers and gives you the payment link.</td>
-    <td valign="top"><strong>Pay, or send it on.</strong> Pay in one tap, or share the link by QR code, WhatsApp, email or copy. The card follows the payment live.</td>
+    <td valign="top"><strong>Pay.</strong> Pay in one tap, or scan the QR code to pay on your phone. The card follows the payment live.</td>
   </tr>
   <tr>
     <td valign="top"><img src="assets/booked.png" alt="Confirmed booking with progress steps, PNR, total and an E-ticket button"></td>
@@ -320,16 +323,16 @@ Use streamable HTTP with either:
 
 ## Paying for a booking
 
-- **One link per booking.** It opens OnArrival's payment page, which hands over to Razorpay's secure checkout. The link is also emailed to you.
-- **Pay from anywhere.** Scan the QR code to pay on your phone, or send the link by WhatsApp or email to whoever is paying.
-- **You pay, not your agent.** Your agent hands you the link; the payment itself happens on Razorpay's page.
-- **Fares are re-checked** when you pay. If the price has changed, you see the new amount before paying.
+- **One link per booking.** It opens OnArrival's secure payment page, and it's also emailed to you.
+- **Pay on your phone.** Scan the QR code on the payment card.
+- **You pay, not your agent.** Your agent hands you the link; the payment itself happens on OnArrival's secure payment page.
+- **Fares are checked again** when your agent holds the booking.
 
 ## Security and privacy
 
 - **One key per agent.** Each agent gets its own connection, so you can revoke one without touching the others. Revoking takes effect within a minute.
 - **Keys are stored hashed.** OnArrival shows a connection link once and stores only a hash of it. Treat it like a password, and revoke it at [agents.onarrival.com](https://agents.onarrival.com) if it leaks.
-- **Agents never see card details.** Payment happens on Razorpay's hosted checkout. Agents only ever get the payment link.
+- **Agents never see card details.** Payment happens on OnArrival's secure payment page. Agents only ever get the payment link.
 - **Nothing is booked until it's paid,** so an agent can't spend money on its own.
 
 ## FAQ
@@ -352,13 +355,6 @@ Sign up at [agents.onarrival.com](https://agents.onarrival.com) with Google or y
 <summary><strong>What if my agent picks the wrong option?</strong></summary>
 
 Nothing is booked until the payment link is paid, and the payment page shows the trip and the total first. Ask your agent to search again, or just don't pay the link.
-
-</details>
-
-<details>
-<summary><strong>Can someone else pay?</strong></summary>
-
-Yes. Anyone with the payment link can pay it, so send it to whoever is paying, or let them scan the QR code.
 
 </details>
 
