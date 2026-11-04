@@ -1,26 +1,23 @@
 ---
 name: onarrival-hotels
-description: Search and book hotels with OnArrival and hand the guest a payment link. Use when the user asks to find, compare or book a hotel or stay, or to check a hotel booking they made through OnArrival.
+description: Find and compare hotels with OnArrival, with live prices for the user's dates. Use when the user asks to find or compare hotels or stays in a city or area, near a place or of a brand, or asks about one hotel (its rooms, amenities, check-in time or reviews).
 ---
 
-# Booking hotels with OnArrival
+# Hotels with OnArrival
 
-The OnArrival tools book on the user's own OnArrival account. You prepare the booking; it is only confirmed once the payment link is paid.
+The OnArrival tools work on the user's own OnArrival account. The server's own instructions, and each result's notes and hints, come first. This skill only says which tool covers what, and in what order.
 
-## Flow
+## Finding a stay
 
-1. **Destination.** Call `hotel-anchor-search` with the city, area, landmark or hotel name. Pick the matching anchor; it carries a `listingInput`.
-2. **Stay details.** Confirm check-in and check-out dates, the number of rooms, and adults and children per room (with children's ages) before searching.
-3. **Listing.** Call `hotel-listing` with the anchor's `listingInput` fields exactly as returned, plus the dates and guests. Present a short list: name, area, rating and total price.
-4. **Details.** For the hotels the user likes, call `hotel-details` for rooms, rates, inclusions and cancellation terms. Use `hotel-reviews-get` if they ask about reviews.
-5. **Create the order** with `hotel-order-create` once the user confirms the room, rate and total price.
-6. **Guests.** Check the order's `validationInfo`: if `panCountRequired` is above 0, prefer guests with PAN details; if `passportMandatory` is true, prefer guests with passport details. Call `traveller-list`, let the user choose, create profiles with `traveller-create` only if needed, then call `hotel-order-travellers-review` with `leadTravellerId` and `otherTravellerIds` (never repeat the lead).
-7. **Payment link.** Call `order-payment-initialize`. It returns `paymentUrl`, which is also emailed to the user. Share the link and the amount.
-8. **Status.** After they pay, check `hotel-booking-details` and share the confirmation and voucher.
+- **Where:** for a state or wide region (Goa, Kerala), search one of its areas or cities, and ask which if it matters.
+- **Before searching**, have the check-in and check-out dates, the number of rooms, and the adults and children in each room (with the children's ages).
+- **Hotels in a city or area:** `hotel-listing`, with the place in words, the dates and the guests, and whatever the user asked for (a budget, stars) in the same call. `hotel-destination-search` is only for when the user must choose between places with the same name.
+- **A brand, or near a place** ("any Taj in Goa?", "walking distance from the venue"): `hotel-find`.
+- **One hotel by name, no dates needed** (amenities, check-in time, how far from the beach): `hotel-info`. With dates it prices the stay too.
+- **Rooms, rates and cancellation terms:** `hotel-details`.
+- **Choosing:** `hotel-reviews-get` for what guests say, `hotel-compare` to set a few stays side by side, and `hotel-recommend` to rank them for what matters to the user.
 
-## Rules
+## Notes
 
-- Confirm the hotel, room, dates, guests and total price with the user before creating the order.
-- Mention the cancellation policy before they pay.
-- Never pay the link yourself: send it to the user, who pays on Razorpay's secure page.
-- If a tool says the connection isn't active, the user needs a new connection link from https://agents.onarrival.com.
+- Dates are in India time.
+- If a tool says the connection isn't active, the user needs a new connection from https://agents.onarrival.com.
